@@ -1,0 +1,18 @@
+<ion-content>
+  <div class="login_content" padding>
+    <img src="./assets/imgs/logo.svg" class="logo">
+    <ion-list class="login_form">
+      <ion-item>
+        <ion-label fixed>Email</ion-label>
+        <ion-input type="email" [(ngModel)]="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Contraseña</ion-label>
+        <ion-input type="password" [(ngModel)]="pass"></ion-input>
+      </ion-item>
+
+      <button ion-button color="aogreen" round full (click)="login()">Ingresar</button>
+    </ion-list>
+  </div>
+</ion-content>

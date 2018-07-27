@@ -1,0 +1,58 @@
+<!--
+  Generated template for the EditarTicketPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>editar-ticket</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-item>
+      <ion-label floating>Nombre del Ticket</ion-label>
+      <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>Prioridad</ion-label>
+        <ion-select [(ngModel)]="prioridad">
+          <ion-option value="1">Alta</ion-option>
+          <ion-option value="2">Media</ion-option>
+          <ion-option value="3">Baja</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <div class="foto_container"></div>
+      <button ion-button full (click)="tomarFoto()"><ion-icon name="camera"></ion-icon> Tomar Foto</button>
+    </ion-item>
+
+    <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button full large color="aogreen">
+              <ion-icon name="create"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col>
+              <button ion-button full large color="danger">
+                <ion-icon name="trash"></ion-icon>
+              </button>
+          </ion-col>
+          <ion-col>
+              <button ion-button full large color="secundary">
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+              </button>
+          </ion-col>
+
+
+        </ion-row>
+      </ion-grid>
+</ion-content>

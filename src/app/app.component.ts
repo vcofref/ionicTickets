@@ -2,9 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import * as firebase from 'firebase'; //Importo el paquete completo de firebase
+import { Configurations } from '../configuration'; //traigo el archivo de configuracion general
 
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+/*
+ELIMINAMOS LAS REFERENCIAS A PAGINAS NO USADAS PARA TRABAJAR CON LAZY LOADING
+*/
 
 @Component({
   templateUrl: 'app.html'
@@ -12,17 +15,18 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  public rootPage: any = 'LoginPage'; //Modifico la pagina de inicializacion con lazy loading como atributo publico
 
-  pages: Array<{title: string, component: any}>;
+  public pages: Array<{title: string, component: string}>; //Atributo publico que declara variables
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
+    // used for an example of ngFor and navigation ** MENU PARA LA NAVEGACION **
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Home', component: 'HomePage' } ,
+      { title: 'List', component: 'listPage' }
+
     ];
 
   }
@@ -32,6 +36,9 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
+      //inicia firebase
+      firebase.initializeApp(Configurations.firebaseConfig);
+
       this.splashScreen.hide();
     });
   }
