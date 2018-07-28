@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>editar-ticket</ion-title>
+    <ion-title>Editar Ticket</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -36,23 +36,21 @@
 
     <ion-grid>
         <ion-row>
-          <ion-col>
-            <button ion-button full large color="aogreen">
-              <ion-icon name="create"></ion-icon>
-            </button>
-          </ion-col>
-          <ion-col>
-              <button ion-button full large color="danger">
-                <ion-icon name="trash"></ion-icon>
-              </button>
-          </ion-col>
-          <ion-col>
-              <button ion-button full large color="secundary">
-                <ion-icon name="checkmark-circle-outline"></ion-icon>
-              </button>
-          </ion-col>
-
-
+            <ion-col>
+                <button ion-button full large color="aogreen" (click)="editarTicket();">
+                  <ion-icon name="create"></ion-icon>
+                </button>
+              </ion-col>
+              <ion-col>
+                <button ion-button full large color="danger" (click)="eliminarTicket();">
+                  <ion-icon name="trash"></ion-icon>
+                </button>
+              </ion-col>
+              <ion-col>
+                <button ion-button full large color="secondary" (click)="resolverTicket();">
+                  <ion-icon name="checkmark-circle-outline"></ion-icon>
+                </button>
+              </ion-col>
         </ion-row>
       </ion-grid>
 </ion-content>

@@ -30,7 +30,8 @@
     </ion-item>
 
     <ion-item>
-      <div class="foto_container"></div>
+      <div class="foto_container" *ngIf="image == ''"></div>
+      <img src="{{image}}" alt="imagen" *ngIf="image != ''" class="foto_preview">
       <button ion-button full (click)="tomarFoto()"><ion-icon name="camera"></ion-icon> Tomar Foto</button>
     </ion-item>
 
